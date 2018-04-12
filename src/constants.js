@@ -1,10 +1,8 @@
 export const MODELS = {
-  invitation: [
-    'key',
-    'details',
-    'email',
-    'resource_type',
-    'resource_id',
-    'status'
+  profile: [
+    'id',
+    'givenName',
+    'lastName',
+    'image'
   ]
 }

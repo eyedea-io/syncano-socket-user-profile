@@ -3,8 +3,7 @@ import {MODELS} from './constants'
 
 export default async ctx => {
   const {users, response, logger} = new Syncano(ctx)
-  const {error, info, warn} = logger('user-profile:update')
-  const {givenName, familyName, image} = ctx.args
+  const {error, info, warn} = logger('user-profile:get')
 
   if (!ctx.meta.user) {
     warn('Unauthorized.')
@@ -14,12 +13,9 @@ export default async ctx => {
   try {
     const profile = await users
       .fields(MODELS.profile)
-      .update(
-        ctx.meta.user.id,
-        {givenName, familyName, image}
-      )
+      .findOrFail(ctx.meta.user.id)
 
-    info('Sucessfuly updated user profile')
+    info(`Found user with id ${ctx.meta.user.id}`, profile)
     response.json(profile)
   } catch (err) {
     error(err.message)
