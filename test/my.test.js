@@ -12,9 +12,9 @@ describe('my', () => {
     }
   }
   const fakeProfile = {
-    givenName: "Joe",
-    familyName: "Doe",
-    image: "http://via.placeholder.com/256x256"
+    givenName: 'Joe',
+    familyName: 'Doe',
+    image: 'http://via.placeholder.com/256x256'
   }
 
   it('allows only authorized requests', async () => {

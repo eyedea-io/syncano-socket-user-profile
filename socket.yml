@@ -62,3 +62,32 @@ endpoints:
             "familyName": "Doe",
             "image": "http://via.placeholder.com/256x256",
           }
+  update-image:
+    description: Update user profile image
+    inputs:
+      file:
+        description: Image file
+      filename:
+        type: string
+      filetype:
+        type: string
+    outputs:
+      success:
+        exit_code: 200
+        example: |
+          {
+            "givenName": "Joe",
+            "familyName": "Doe",
+            "image": "http://via.placeholder.com/256x256",
+          }
+  remove-image:
+    description: Remove user profile image
+    outputs:
+      success:
+        exit_code: 200
+        example: |
+          {
+            "givenName": "Joe",
+            "familyName": "Doe",
+            "image": "http://via.placeholder.com/256x256",
+          }

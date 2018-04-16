@@ -19,6 +19,6 @@ export default async ctx => {
     response.json(profile)
   } catch (err) {
     error(err.message)
-    response.json({message: err.message}, 400)
+    response.json({message: err.message}, 500)
   }
 }

@@ -12,9 +12,9 @@ describe('find', () => {
     }
   }
   const fakeProfile = {
-    givenName: "Joe",
-    familyName: "Doe",
-    image: "http://via.placeholder.com/256x256"
+    givenName: 'Joe',
+    familyName: 'Doe',
+    image: 'http://via.placeholder.com/256x256'
   }
 
   it('allows only authorized requests', async () => {
@@ -52,7 +52,7 @@ describe('find', () => {
     const mocks = {'@syncano/core': SyncanoCoreStub}
     const result = await run('find', {args, meta}, {mocks})
 
-    assert.propertyVal(result, 'code', 400)
+    assert.propertyVal(result, 'code', 500)
     assert.deepPropertyVal(result, 'data', {message: fakeResponse.message})
   })
 })
