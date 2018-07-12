@@ -1,11 +1,5 @@
 name: user-profile
 description: Manage user profile data
-version: 0.1.0
-url: 'https://github.com/eyedea-io/syncano-socket-user-profile'
-keywords:
-  - user
-  - profile
-  - eyedea
 classes:
   user:
     - name: givenName
@@ -22,40 +16,84 @@ endpoints:
     outputs:
       success:
         exit_code: 200
-        example: |
-          {
-            "givenName": "Joe",
-            "familyName": "Doe",
-            "image": "http://via.placeholder.com/256x256",
-          }
+        examples:
+          - |
+            {
+              "givenName": "Joe",
+              "familyName": "Doe",
+              "image": "http://via.placeholder.com/256x256",
+            }
   find:
     description: Find user profile with given id
     inputs:
-      id:
-        type: integer
+      properties:
+        id:
+          description: ID of the user
+          type: integer
     outputs:
       success:
         exit_code: 200
-        example: |
-          {
-            "givenName": "Joe",
-            "familyName": "Doe",
-            "image": "http://via.placeholder.com/256x256",
-          }
+        properties:
+          givenName:
+            type: string
+            description: User first name
+            examples:
+              - Joe
+          familyName:
+            type: string
+            description: User last name
+            example:
+              - Doe
+          image:
+            type: string
+            description: User Avatar image url
+            example:
+              - http://via.placeholder.com/256x256
+        examples:
+          - |
+            {
+              "givenName": "Joe",
+              "familyName": "Doe",
+              "image": "http://via.placeholder.com/256x256",
+            }
   update:
     description: Update user profile
     inputs:
-      givenName:
-        type: string
-        description: User first name
-        example: Joe
-      familyName:
-        type: string
-        description: User last name
-        example: Doe
+      properties:
+        givenName:
+          type: string
+          description: User first name
+          examples:
+            - Joe
+        familyName:
+          type: string
+          description: User last name
+          example:
+            - Doe
+        image:
+          type: string
+          description: User Avatar image url
+          example:
+            - http://via.placeholder.com/256x256
     outputs:
       success:
         exit_code: 200
+        properties:
+          givenName:
+            type: string
+            description: User first name
+            examples:
+              - Joe
+          familyName:
+            type: string
+            description: User last name
+            example:
+              - Doe
+          image:
+            type: string
+            description: User Avatar image url
+            example:
+              - http://via.placeholder.com/256x256
         example: |
           {
             "givenName": "Joe",
@@ -74,17 +112,50 @@ endpoints:
     outputs:
       success:
         exit_code: 200
-        example: |
-          {
-            "givenName": "Joe",
-            "familyName": "Doe",
-            "image": "http://via.placeholder.com/256x256",
-          }
+        properties:
+          givenName:
+            type: string
+            description: User first name
+            examples:
+              - Joe
+          familyName:
+            type: string
+            description: User last name
+            example:
+              - Doe
+          image:
+            type: string
+            description: User Avatar image url
+            example:
+              - http://via.placeholder.com/256x256
+        examples:
+          - |
+            {
+              "givenName": "Joe",
+              "familyName": "Doe",
+              "image": "http://via.placeholder.com/256x256",
+            }
   remove-image:
     description: Remove user profile image
     outputs:
       success:
         exit_code: 200
+        properties:
+          givenName:
+            type: string
+            description: User first name
+            examples:
+              - Joe
+          familyName:
+            type: string
+            description: User last name
+            example:
+              - Doe
+          image:
+            type: string
+            description: User Avatar image url
+            example:
+              - http://via.placeholder.com/256x256
         example: |
           {
             "givenName": "Joe",
