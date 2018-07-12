@@ -1,4 +1,4 @@
-/* global describe it expect jest */
+/* global describe it expect */
 import sinon from 'sinon'
 import syncanoMock from '@syncano/core'
 import {run} from '@syncano/test'
